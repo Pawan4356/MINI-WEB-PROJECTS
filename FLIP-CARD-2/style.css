@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+/*Background preparation*/
+
+section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: #121321;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, brown, aliceblue);
+    transform: translate(-150px, -70px);
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, brown, aliceblue);
+    transform: translate(150px, 70px);
+}
+
+.container {
+    position: relative;
+    height: 225px;
+    width: 375px;
+    z-index: 100;
+    transition: 0.7s;
+    transform-style: preserve-3d;
+}
+
+.container:hover {
+    transform: rotateY(180deg);
+}
+
+.container .card {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(25px);
+    padding: 30px;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+/*Front of the card*/
+
+.front header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.front .logo img {
+    width: 50px;
+}
+
+.front header .chip {
+    width: 50px;
+}
+
+.logo h5 {
+    padding-left: 10px;
+}
+
+h5{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+h6{
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.front .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.front .card-details {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+h5.number {
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+h5.name {
+    margin-top: 25px;
+}
+
+/* Back of the card */
+
+.card.back {
+    border: none;
+    padding: 15px 25px 25px 25px;
+    transform: rotateY(180deg);
+}
+
+.card.back h6 {
+    font-size: 8px;
+}
+
+.card.back .magStrip {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    background-color: black;
+}
+
+.card.back .signature {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 80px;
+    height: 40px;
+    border-radius: 5px;
+    width: 80%;
+    background-color: #fff;
+    background: repeating-linear-gradient(white, #fff 3px, #e9e9e9 0px, #e9e9e9 9px);
+}
+
+.signature i {
+    color: black;
+    font-size: 12px;
+    margin: -15%;
+    background-color: white;
+    padding: 5px 5px 5px 20px;
+    border-radius: 5px;
+    z-index: -1;
+}
+
+.card.back h5 {
+    font-size: 8px;
+    margin-top: 15px;
+}

@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-size: 5em;
+  background-image: url(CURTAIN.jpg);
+}
+.banner {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("CURTAIN.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: bgZoomIn 2s ease-in-out 1 forwards;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes bgZoomIn {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes bgZoomOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+
+svg path {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 0.3;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: textanime 2s ease-in-out 1 forwards;
+}
+
+@keyframes textanime {
+    0% {
+        stroke-dashoffset: 50;
+    }
+    50% {
+        fill: transparent;
+    }
+    100% {
+        fill: black;
+        stroke-dashoffset: 0;
+    }
+}

@@ -1,0 +1,163 @@
+:root {
+    --blob-size: 100vh;
+    --blob-speed: 1s;
+    --blob-speed-scale: 10s;
+    --blob-speed-move: 1s;
+    --blob-opacity: 0.2;
+    --blob-shape-speed: 1s;
+
+    --blob-color-1: #fca326;
+    --blob-color-2: #ceb3ef;
+    --blob-color-3: #a989f5;
+    --blob-color-4: #ff6f91;
+    --blob-color-5: #6fdac9;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background: #171321;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.blobs {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blob-container {
+    position: absolute;
+}
+
+.blob {
+    width: var(--blob-size);
+    height: calc(var(--blob-size) * 0.6);
+    border-radius: 100%;
+    opacity: var(--blob-opacity);
+    transform-origin: center;
+    animation:
+        blob-pulse var(--blob-speed-scale) infinite ease-in-out,
+        blob-shape var(--blob-shape-speed) infinite alternate ease-in-out,
+        blob-float var(--blob-speed-move) infinite alternate ease-in-out;
+}
+
+/* UNIQUE POSITIONS FOR EACH BLOB */
+.blob-1 {
+    background: var(--blob-color-1);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s, 0s, 0s;
+    /* pulse, shape, float */
+}
+
+.blob-2 {
+    background: var(--blob-color-2);
+    top: 20%;
+    right: 15%;
+    animation-delay: 1s, 1.5s, 0.5s;
+}
+
+.blob-3 {
+    background: var(--blob-color-3);
+    bottom: 15%;
+    left: 25%;
+    animation-delay: 2s, 3s, 1s;
+}
+
+.blob-4 {
+    background: var(--blob-color-4);
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 0.5s, 2.5s, 1.2s;
+}
+
+.blob-5 {
+    background: var(--blob-color-5);
+    top: 50%;
+    left: 45%;
+    animation-delay: 1.3s, 0.3s, 2.1s;
+}
+
+
+/* Animations */
+@keyframes blob-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3, 1.3);
+    }
+}
+
+@keyframes blob-shape {
+    0% {
+        border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%;
+    }
+
+    25% {
+        border-radius: 40% 60% 50% 50% / 70% 30% 40% 60%;
+    }
+
+    50% {
+        border-radius: 60% 40% 40% 60% / 50% 50% 70% 30%;
+    }
+
+    75% {
+        border-radius: 50% 50% 70% 30% / 30% 70% 50% 50%;
+    }
+
+    100% {
+        border-radius: 30% 70% 50% 50% / 60% 40% 30% 70%;
+    }
+}
+
+@keyframes blob-float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-10%, 10%) rotate(-5deg);
+    }
+
+    66% {
+        transform: translate(10%, -5%) rotate(5deg);
+    }
+
+    100% {
+        transform: translate(-5%, 15%) rotate(10deg);
+    }
+}
+
+.glass-effect {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2),
+        0 0 8px rgba(255, 255, 255, 0.3),
+        0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1),
+        inset 0 0 15px rgba(255, 255, 255, 0.05),
+        0 0 20px rgba(0, 0, 0, 0.2),
+        0 0 8px rgba(255, 255, 255, 0.3),
+        0 0 15px rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
