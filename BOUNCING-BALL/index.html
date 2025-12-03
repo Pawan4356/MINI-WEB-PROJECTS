@@ -1,0 +1,67 @@
+<html>
+
+<head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .ball {
+      width: 60px;
+      height: 60px;
+      background: red;
+      border-radius: 50%;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    .shadow {
+      background: rgba(0, 0, 0, 0.5);
+      height: 5px;
+      width: 60px;
+      border-radius: 50%;
+      animation: shrink 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-150px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shrink {
+      0% {
+        width: 60px;
+        height: 5px;
+      }
+
+      50% {
+        width: 0px;
+        height: 0px;
+      }
+
+      100% {
+        width: 60px;
+        height: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ball"></div>
+  <div class="shadow"></div>
+</body>
+
+</html>
